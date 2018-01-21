@@ -1,5 +1,6 @@
 package com.example.zoskenbaeva.weathersearching;
 
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class WeatherInfoAdapter extends RecyclerView.Adapter<WeatherInfoAdapter.
         holder.tvRegionName.setText(regionsList.get(position).getRegionName());
         holder.tvDescription.setText(regionsList.get(position).getDescription());
         Ion.with(holder.itemView.getContext())
-                .load(OWMProperties.OWM_ICON_URL
+                .load(OWMUtils.OWM_ICON_URL
                         +regionsList.get(position).getIconId()+".png")
                 .withBitmap()
                 .intoImageView(holder.ivIcon);
@@ -45,6 +46,15 @@ public class WeatherInfoAdapter extends RecyclerView.Adapter<WeatherInfoAdapter.
     @Override
     public int getItemCount() {
         return regionsList.size();
+    }
+
+    public void swapItems(List<WeatherInfo> wiList) {
+        final PlacesDiffCallback diffCallback = new PlacesDiffCallback(this.regionsList, wiList);
+        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+        this.regionsList.clear();
+        this.regionsList.addAll(wiList);
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public static class WeatherInfoViewHolder extends RecyclerView.ViewHolder {

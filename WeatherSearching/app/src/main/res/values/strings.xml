@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weather Finder in KZ</string>
+    <string name="app_tag">WEATHER_FINDER_KZ_PROJECT</string>
+    <string name="cacheDBName">dbcache</string>
 </resources>

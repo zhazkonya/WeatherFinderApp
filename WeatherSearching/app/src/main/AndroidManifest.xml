@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.zoskenbaeva.weathersearching">
+    package="com.example.zoskenbaeva.weathersearching">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -9,18 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBNiFTBo1qMncbxXrrNDuLY7hea1PqDUS4"/>
+            android:value="AIzaSyBNiFTBo1qMncbxXrrNDuLY7hea1PqDUS4" />
+
+        <service
+            android:name=".CacheService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".AutoCacheReceiver">
+            <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter></receiver>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
