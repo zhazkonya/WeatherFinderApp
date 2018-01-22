@@ -2,4 +2,6 @@
     <string name="app_name">Weather Finder in KZ</string>
     <string name="app_tag">WEATHER_FINDER_KZ_PROJECT</string>
     <string name="cacheDBName">dbcache</string>
+    <string name="gmapKey">AIzaSyA5kierQnbCDYpUd6I05sKuRy0mGZP4Os8</string>
+    <string name="owmKey">334740fed34c64cbdb860013770983bd</string>
 </resources>

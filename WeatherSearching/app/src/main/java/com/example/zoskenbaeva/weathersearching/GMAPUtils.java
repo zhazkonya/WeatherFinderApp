@@ -30,8 +30,7 @@ public class GMAPUtils {
             ="placeid=";
 
     public final static  String GMAP_KEY
-            ="key=AIzaSyA5kierQnbCDYpUd6I05sKuRy0mGZP4Os8";
-            //= "key=AIzaSyBNiFTBo1qMncbxXrrNDuLY7hea1PqDUS4";
+            ="key=";
     Map<String, String> coorToCity = new HashMap<>();
 
     public GMAPUtils(Context context, String token) {
@@ -45,7 +44,7 @@ public class GMAPUtils {
         String autocomplete_request =
                 GMAP_AUTOCOM_API_BASE + GMAP_AUTOCOM_PARAMS
                         + token
-                        + "&"+ GMAP_KEY;
+                        + "&"+ GMAP_KEY+ c.getString(R.string.gmapKey);
 
         HTTPDataHandler hh = new HTTPDataHandler();
         String stream = hh.GetHTTPData(autocomplete_request);
@@ -82,7 +81,7 @@ public class GMAPUtils {
 
     private void getPlaceDetails(String p_id, String city_name) {
         String placedeatil_request =
-                GMAP_PLACE_API_BASE+GMAP_KEY
+                GMAP_PLACE_API_BASE+GMAP_KEY+ c.getString(R.string.gmapKey)
                         +"&"+GMAP_PLACE_PARAMS+p_id;
 
         HTTPDataHandler hh = new HTTPDataHandler();

@@ -18,7 +18,7 @@ import java.util.Map;
 public class OWMUtils {
     public final static  String OWM_ICON_URL ="http://openweathermap.org/img/w/";//10d.png
     public final static  String OWM_API_KEY
-            = "appid=334740fed34c64cbdb860013770983bd";
+            ="appid=";
     public final static  String OWM_API_BASE ="http://api.openweathermap.org/data/2.5/weather?";
 
     //&lat=52.3507849&lon=5.2647016
@@ -26,7 +26,6 @@ public class OWMUtils {
     public final static  String OWM_PARAMS_LNG ="lon=";
     List<WeatherInfo> wiList = new ArrayList<>();
 
-    public final static String OWM_REQUEST_ID = "3";
 
     Context c = null;
     String curtoken = "";
@@ -46,7 +45,7 @@ public class OWMUtils {
     }
 
     private String getWeatherFromOWM(String lat, String lng) {
-        String request = OWM_API_BASE+OWM_API_KEY
+        String request = OWM_API_BASE+OWM_API_KEY+c.getString(R.string.owmKey)
                 + "&"+OWM_PARAMS_LAT + lat
                 + "&"+OWM_PARAMS_LNG + lng;
         HTTPDataHandler hh = new HTTPDataHandler();
