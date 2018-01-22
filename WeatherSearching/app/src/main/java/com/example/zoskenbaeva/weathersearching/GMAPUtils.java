@@ -30,7 +30,8 @@ public class GMAPUtils {
             ="placeid=";
 
     public final static  String GMAP_KEY
-            = "key=AIzaSyBNiFTBo1qMncbxXrrNDuLY7hea1PqDUS4";
+            ="key=AIzaSyA5kierQnbCDYpUd6I05sKuRy0mGZP4Os8";
+            //= "key=AIzaSyBNiFTBo1qMncbxXrrNDuLY7hea1PqDUS4";
     Map<String, String> coorToCity = new HashMap<>();
 
     public GMAPUtils(Context context, String token) {
